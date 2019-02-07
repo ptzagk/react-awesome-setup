@@ -7,34 +7,47 @@ import { myStore } from '../state/myState';
 const Movies = () => {
     const [{ age }, dispatch] = useStore(myStore);
     const [movies, setMovies] = useState([]);
+    const [isLoading, setLoading] = useState(true);
 
-    useEffect(() => {
-        fetch('http://www.mocky.io/v2/5c5b357b3900001300e05669')
+    const getMovies = () => {
+        fetch('http://www.mocky.io/v2/5c5b357b3900001300e05669?mocky-delay=1000ms')
             .then(res => res.json())
             .then(res => {
                 setMovies(res.movies);
+                setLoading(false);
             })
             .catch(err => {
-                throw new Error('Could not contact API');
+                console.error(err);
+                setLoading(false);
             });
-    });
+    };
+
+    useEffect(() => {
+        getMovies();
+    }, []);
+
+    if (isLoading) {
+        return <p>Loading...</p>;
+    }
 
     return (
         <>
-            <p>My test page!</p>
+            <h2>Movies</h2>
             <p>
                 Age: {age}
                 <button onClick={() => dispatch({ type: 'decrease_age' })}>Decrease</button>
                 <button onClick={() => dispatch({ type: 'increase_age' })}>Increase</button>
             </p>
-            <ul>
-                {movies &&
-                    movies.map((movie, index) => (
+
+            {movies.length > 0 && (
+                <ul>
+                    {movies.map((movie, index) => (
                         <li key={index}>
                             {movie.title} (Score: {movie.score})
                         </li>
                     ))}
-            </ul>
+                </ul>
+            )}
         </>
     );
 };

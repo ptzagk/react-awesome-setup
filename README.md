@@ -7,12 +7,14 @@ The goal is to actually update this project whenever I create a new project.
 
 This setup includes:
 
--   React
+-   React 16.8
 -   React router
 -   Flow type checking
 -   Using React HookStore for global state
 -   Using react hooks for local state
 -   Using react hooks for fetching mock data
+-   SASS Modules
+-   Enabled service worker
 
 ## Still missing
 

@@ -7,7 +7,7 @@ import Home from './components/Home';
 import Movies from './components/Movies';
 import Preferences from './components/Preferences';
 
-import './App.scss';
+import './sass/App.scss';
 
 const App = () => {
     return (

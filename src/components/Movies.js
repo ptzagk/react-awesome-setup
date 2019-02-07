@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { useStore } from 'react-hookstore';
-import { myStore } from '../state/myState';
+import { globalStateWithLocalStorage } from '../state/globalStateWithLocalStorage';
 
 const Movies = () => {
-    const [{ age }, dispatch] = useStore(myStore);
+    const [{ age, gender }, dispatch] = useStore(globalStateWithLocalStorage);
     const [movies, setMovies] = useState([]);
     const [isLoading, setLoading] = useState(true);
 
@@ -26,18 +26,26 @@ const Movies = () => {
         getMovies();
     }, []);
 
-    if (isLoading) {
-        return <p>Loading...</p>;
-    }
-
     return (
         <>
             <h2>Movies</h2>
+
+            <h3>Global state</h3>
+
             <p>
                 Age: {age}
                 <button onClick={() => dispatch({ type: 'decrease_age' })}>Decrease</button>
                 <button onClick={() => dispatch({ type: 'increase_age' })}>Increase</button>
             </p>
+
+            <p>
+                Gender: {gender}
+                <button onClick={() => dispatch({ type: 'change_gender' })}>Change</button>
+            </p>
+
+            <h3>Local state, data from API</h3>
+
+            {isLoading && <p>Loading...</p>}
 
             {movies.length > 0 && (
                 <ul>

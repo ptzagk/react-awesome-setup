@@ -30,6 +30,8 @@ const Movies = () => {
         <>
             <h2>Movies</h2>
 
+            <p>Will list movies from API.</p>
+
             <h3>Global state</h3>
 
             <p>These values are accessible on all components with Hooks and global state. It will remember the setting with LocalStorage.</p>

@@ -13,6 +13,8 @@ const Preferences = () => {
         <>
             <h2>Preferences</h2>
 
+            <p>Will let you save the number of movies you own and if you like sci fi or not (of course you do!)</p>
+
             <h3>Global state</h3>
 
             <p>These values are accessible on all components with Hooks and global state. It will remember the setting with LocalStorage.</p>

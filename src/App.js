@@ -6,7 +6,7 @@ import { myStore } from './state/myState';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Home from './components/Home';
-import TestPage from './components/TestPage';
+import Movies from './components/Movies';
 
 import './App.scss';
 
@@ -19,7 +19,7 @@ const App = () => {
                 <header className="App-header">
                     <p>
                         <Link to="/">Home</Link>
-                        <Link to="/test">TestPage</Link>
+                        <Link to="/movies">Movies</Link>
                     </p>
 
                     <p>
@@ -36,7 +36,7 @@ const App = () => {
 
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/test" component={TestPage} />
+                    <Route path="/movies" component={Movies} />
                 </Switch>
             </div>
         </Router>

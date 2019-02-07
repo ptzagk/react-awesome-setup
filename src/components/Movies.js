@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useStore } from 'react-hookstore';
 import { myStore } from '../state/myState';
 
-const TestPage = () => {
+const Movies = () => {
     const [{ age }, dispatch] = useStore(myStore);
     const [movies, setMovies] = useState([]);
 
@@ -39,4 +39,4 @@ const TestPage = () => {
     );
 };
 
-export default TestPage;
+export default Movies;

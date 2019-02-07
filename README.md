@@ -11,14 +11,13 @@ This setup includes:
 -   React router
 -   Flow type checking
 -   Using React HookStore for global state
--   Using react hooks for local state
--   Using react hooks for fetching mock data
+-   Using react HookStore in combination with LocalStorage to remember state on page load
+-   Using react hooks for fetching mock data to local state
 -   SASS Modules
 -   Enabled service worker
 
 ## Still missing
 
--   Loading
 -   Suspense
 
 ## Run it

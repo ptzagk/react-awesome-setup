@@ -14,7 +14,9 @@ const App = () => {
         <Router>
             <div className="App">
                 <header className="App-header">
-                    <p>
+                    <h1>React Awesome Setup</h1>
+
+                    <p className="navigation">
                         <Link to="/">Home</Link>
                         <Link to="/movies">Movies</Link>
                         <Link to="/preferences">Preferences</Link>

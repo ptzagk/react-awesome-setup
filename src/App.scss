@@ -1,14 +1,36 @@
-.App {
-    text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
-    .App-header {
-        a {
-            margin: 0 1em;
-            color: #000;
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    width: 80%;
+    margin: 0 10%;
+}
+
+.navigation {
+    a {
+        color: #000;
+        margin: 0 0.75em;
+
+        &:first-child {
+            margin-left: 0;
         }
     }
+}
 
-    .App-link {
-        color: #61dafb;
-    }
+button {
+    margin-left: 1em;
+    margin-right: 0.5em;
+    height: 2rem;
+    border: 2px #000 solid;
+    background: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }

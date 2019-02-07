@@ -9,7 +9,13 @@ const Home = () => {
         <>
             <h2>Home</h2>
 
+            <p>The startpage. Yeah.</p>
+
             <h3>Global state</h3>
+
+            <p>These values are accessible on all components with Hooks and global state. It will remember the setting with LocalStorage.</p>
+
+            <p>Checkout the other pages with different types of state.</p>
 
             <p>
                 Age: {age}

@@ -15,6 +15,8 @@ const Preferences = () => {
 
             <h3>Global state</h3>
 
+            <p>These values are accessible on all components with Hooks and global state. It will remember the setting with LocalStorage.</p>
+
             <p>
                 Age: {age}
                 <button onClick={() => dispatchGlobalState({ type: 'decrease_age' })}>Decrease</button>
@@ -28,14 +30,16 @@ const Preferences = () => {
 
             <h3>Global state (not localStated)</h3>
 
+            <p>These values are global and accessible from other components (even if it's not at the moment). It is not remembered on page reload.</p>
+
             <p>
-                Movies saved: {moviesSaved}
+                Movies saved: <strong>{moviesSaved}</strong>
                 <button onClick={() => dispatch({ type: 'decrease_movies_saved' })}>Decrease</button>
                 <button onClick={() => dispatch({ type: 'increase_movies_saved' })}>Increase</button>
             </p>
 
             <p>
-                Is loving scifi: {loveSciFi ? 'Hell yeah' : 'Not really'}
+                Is loving scifi: <strong>{loveSciFi ? 'Hell yeah' : 'Not really'}</strong>
                 <button onClick={() => dispatch({ type: 'change_scifi_preference' })}>Change</button>
             </p>
         </>

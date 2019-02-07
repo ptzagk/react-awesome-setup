@@ -32,6 +32,8 @@ const Movies = () => {
 
             <h3>Global state</h3>
 
+            <p>These values are accessible on all components with Hooks and global state. It will remember the setting with LocalStorage.</p>
+
             <p>
                 Age: {age}
                 <button onClick={() => dispatch({ type: 'decrease_age' })}>Decrease</button>
@@ -45,13 +47,18 @@ const Movies = () => {
 
             <h3>Local state, data from API</h3>
 
+            <p>
+                This data is fetched from an API and it uses hooks with fetch to get the data. It will show "Loading..." while loading. This will be run
+                everytime we access this component.
+            </p>
+
             {isLoading && <p>Loading...</p>}
 
             {movies.length > 0 && (
                 <ul>
                     {movies.map((movie, index) => (
                         <li key={index}>
-                            {movie.title} (Score: {movie.score})
+                            <strong>{movie.title}</strong> (Score: {movie.score}/5)
                         </li>
                     ))}
                 </ul>

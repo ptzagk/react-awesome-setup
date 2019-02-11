@@ -1,13 +1,12 @@
 // @flow
 
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-
-import Home from './components/Home';
-import Movies from './components/Movies';
-import Preferences from './components/Preferences';
-
 import './sass/App.scss';
+
+const Home = lazy(() => import('./components/Home'));
+const Movies = lazy(() => import('./components/Movies'));
+const Preferences = lazy(() => import('./components/Preferences'));
 
 const App = () => {
     return (
@@ -23,11 +22,19 @@ const App = () => {
                     </p>
                 </header>
 
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/movies" component={Movies} />
-                    <Route path="/preferences" component={Preferences} />
-                </Switch>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Switch>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route path="/movies">
+                            <Movies />
+                        </Route>
+                        <Route path="/preferences">
+                            <Preferences />
+                        </Route>
+                    </Switch>
+                </Suspense>
             </div>
         </Router>
     );

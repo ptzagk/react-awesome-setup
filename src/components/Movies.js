@@ -1,11 +1,10 @@
 // @flow
 
 import React, { useState, useEffect } from 'react';
-import { useStore } from 'react-hookstore';
-import { globalStateWithLocalStorage } from '../state/globalStateWithLocalStorage';
+import { Typography, List, ListItem, ListItemText } from '@material-ui/core';
+import GlobalStateDemo from './GlobalStateDemo';
 
 const Movies = () => {
-    const [{ age, gender }, dispatch] = useStore(globalStateWithLocalStorage);
     const [movies, setMovies] = useState([]);
     const [isLoading, setLoading] = useState(true);
 
@@ -28,42 +27,36 @@ const Movies = () => {
 
     return (
         <>
-            <h2>Movies</h2>
+            <Typography variant="h3" color="inherit">
+                Movies
+            </Typography>
 
-            <p>Will list movies from API.</p>
+            <Typography paragraph>Will list movies from API.</Typography>
 
-            <h3>Global state</h3>
+            <GlobalStateDemo />
 
-            <p>These values are accessible on all components with Hooks and global state. It will remember the setting with LocalStorage.</p>
+            <Typography variant="h4" color="inherit">
+                Local state, data from API
+            </Typography>
 
-            <p>
-                Age: {age}
-                <button onClick={() => dispatch({ type: 'decrease_age' })}>Decrease</button>
-                <button onClick={() => dispatch({ type: 'increase_age' })}>Increase</button>
-            </p>
-
-            <p>
-                Gender: {gender}
-                <button onClick={() => dispatch({ type: 'change_gender' })}>Change</button>
-            </p>
-
-            <h3>Local state, data from API</h3>
-
-            <p>
-                This data is fetched from an API and it uses hooks with fetch to get the data. It will show "Loading..." while loading. This will be run
-                everytime we access this component.
-            </p>
+            <Typography paragraph>
+                This data is fetched from an API and it uses hooks with fetch to get the data. It
+                will show "Loading..." while loading. This will be run everytime we access this
+                component.
+            </Typography>
 
             {isLoading && <p>Loading...</p>}
 
             {movies.length > 0 && (
-                <ul>
+                <List>
                     {movies.map((movie, index) => (
-                        <li key={index}>
-                            <strong>{movie.title}</strong> (Score: {movie.score}/5)
-                        </li>
+                        <ListItem key={index}>
+                            <ListItemText>
+                                {movie.title} (Score: {movie.score}/5)
+                            </ListItemText>
+                        </ListItem>
                     ))}
-                </ul>
+                </List>
             )}
         </>
     );

@@ -2,7 +2,6 @@
 
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import './sass/App.scss';
 import { AppBar, Toolbar, Typography, Paper, IconButton, Button } from '@material-ui/core';
 import { MuiThemeProvider, withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,6 +12,7 @@ import styles from './styles/App';
 const Home = lazy(() => import('./components/Home'));
 const Movies = lazy(() => import('./components/Movies'));
 const Preferences = lazy(() => import('./components/Preferences'));
+const Vehicles = lazy(() => import('./components/Vehicles'));
 
 const App = props => {
     return (
@@ -44,6 +44,11 @@ const App = props => {
                                 </Link>
                             </Button>
                             <Button color="inherit">
+                                <Link className={props.classes.routerLink} to="/vehicles">
+                                    Vehicles
+                                </Link>
+                            </Button>
+                            <Button color="inherit">
                                 {' '}
                                 <Link className={props.classes.routerLink} to="/preferences">
                                     Preferences
@@ -60,6 +65,9 @@ const App = props => {
                                 </Route>
                                 <Route path="/movies">
                                     <Movies />
+                                </Route>
+                                <Route path="/vehicles">
+                                    <Vehicles />
                                 </Route>
                                 <Route path="/preferences">
                                     <Preferences />

@@ -8,7 +8,7 @@ The goal is to actually update this project whenever I create a new project.
 This setup includes:
 
 -   React 16.8
--   React router
+-   React router with lazy loading components
 -   Flow type checking
 -   Using React HookStore for global state
 -   Using react HookStore in combination with LocalStorage to remember state on page load

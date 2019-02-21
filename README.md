@@ -13,7 +13,8 @@ This setup includes:
 -   Using React HookStore for global state
 -   Using react HookStore in combination with LocalStorage to remember state on page load
 -   Using react hooks for fetching mock data to local state
--   SASS Modules
+-   Using Firebase to remember state
+-   Material UI
 -   Enabled service worker
 
 ## Still missing
